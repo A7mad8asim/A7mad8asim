@@ -1,54 +1,43 @@
-# 👋 Hi, I'm @A7mad8asim
+# 👋 Hi, I'm Ahmed
 
-An **Analyst & Data Scientist** passionate about leveraging **Artificial Intelligence**, **Machine Learning**, and **Advanced Data Analytics** to solve complex real-world problems and deliver data-driven insights.
-
----
-
-## 🚀 About Me
-
-I bridge the gap between **raw data, machine intelligence, and strategic decision-making**. With a background in **data analytics** and **data engineering**, I focus on building intelligent workflows, predictive models, and AI-powered analytical applications.
-
-- 🧠 **AI & ML Focus**: Building agentic AI workflows, exploring LLMs, and applying machine learning for predictive insights.
-- 📊 **Data Engineering & Analytics**: Curating, cleaning, modeling, and visualizing complex datasets.
-- 🌍 **Core Focus**: Data Engineering, Predictive Modeling, and Intelligent Automation.
+**Data Scientist & Analyst** building LLM-powered analytics tools that are measured, private and safe, with a focus on **Arabic / English** and **healthcare & operations** data.
 
 ---
 
-## 🤖 AI & Research Interests
+## ⭐ Featured Project
 
-- **Generative AI & Agentic Systems**: Autonomous AI agents, Retrieval-Augmented Generation (RAG), prompt engineering, and LLM orchestration (LangChain, LlamaIndex, OpenAI / Gemini / Anthropic APIs).
-- **Machine Learning & Predictive Analytics**: Supervised & unsupervised learning, predictive modeling, and feature engineering (PyTorch, TensorFlow, Scikit-Learn, Hugging Face).
-- **Natural Language Processing & Data Mining**: Leveraging NLP, text mining, and machine learning to extract patterns, forecast trends, and automate insights from unstructured data.
+### [Ask-the-Data · اسأل البيانات](https://github.com/A7mad8asim/ask-the-data)
+
+A bilingual (Arabic / English, including Gulf dialect) **text-to-SQL assistant for clinic analytics**. Managers ask a question in their own words and get a correct number back, with a chart and the SQL that produced it.
+
+- **79% execution accuracy** on a 100-question bilingual gold set, using a **local 8B model** (Qwen3 via Ollama), so no health data leaves the machine
+- **20 / 20** privacy and safety attacks blocked: a SQL sandbox on the parsed query tree, a read-only database and small-group suppression (`<10`)
+- The LLM never calculates a number: every figure in an answer is checked against the result table
+- Ablation study (schema → glossary → few-shot retrieval → repair loop), a self-checking evaluation harness in CI, and Docker
+
+`Python` `DuckDB` `sqlglot` `Ollama` `Claude API` `Streamlit` `pytest` `GitHub Actions` `Docker`
 
 ---
 
-## 🛠 Tech Stack & Tools
+## 🛠 Tools I've Used in Public Projects
 
-| Category | Technologies & Tools |
+| Category | Tools |
 | :--- | :--- |
-| **Languages & Core** | Python, SQL |
-| **AI & Machine Learning** | PyTorch, TensorFlow, Scikit-Learn, Hugging Face |
-| **GenAI & Agentic Frameworks** | LangChain, LlamaIndex, OpenAI API, Gemini API, Anthropic API |
-| **Data Analysis & Engineering** | Pandas, NumPy, Data Cleaning & Pipeline Automation |
-| **Visualization & Reporting** | Power BI, Tableau, Matplotlib, Seaborn |
+| **Languages** | Python, SQL |
+| **LLMs** | Ollama (Qwen3), Anthropic API, prompt design, few-shot retrieval, evaluation harnesses |
+| **Data** | DuckDB, Pandas, NumPy, synthetic data generation |
+| **Apps & Engineering** | Streamlit, Docker, pytest, GitHub Actions |
 
 ---
 
-## 🎯 Current Goals & Pursuits
+## 🎯 Currently Building
 
-- 🔬 Developing custom AI agents for automated data extraction, synthesis, and predictive workflow automation.
-- 💡 Fine-tuning open-source LLMs and experimenting with modern RAG architectures.
-- 🤝 Collaborating on open-source projects at the intersection of AI, data science, and social impact.
-
----
-
-## 📫 Connect with Me
-
-I'm always open to discussing **AI innovations, data science, machine learning, and collaborative opportunities**.
-
-- 📧 **Email**: [a7mad8asim@gmail.com](mailto:a7mad8asim@gmail.com)
-- 🐙 **GitHub**: [@A7mad8asim](https://github.com/A7mad8asim)
+- 📚 Bilingual **RAG** over Arabic / English public documents, with citations and a retrieval benchmark
+- 🧪 **Fine-tuning** a small open model to close the Gulf-dialect accuracy gap (63% → ?)
+- 📈 **Forecasting** clinic demand and no-show risk with explainable ML
 
 ---
 
-*Thanks for visiting my profile! Stay curious and keep building.* 🚀
+## 📫 Connect
+
+- 📧 [a7mad8asim@gmail.com](mailto:a7mad8asim@gmail.com)
