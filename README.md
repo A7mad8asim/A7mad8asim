@@ -23,8 +23,8 @@ Bilingual **retrieval-augmented generation over Qatar's official open statistics
 
 - **Grounding check:** the model may only repeat numbers found in the sources it cites; any other number and the answer is withheld
 - **Bilingual chunks:** Arabic and English values are paired from the portal's twin columns (`Doha / الدوحة`), so one index serves both languages
-- **84% of held-out questions answered correctly on a local 8B model**, every unanswerable question refused, 12 of 13 Gulf-dialect questions correct (120-question bilingual benchmark with a held-out split)
-- **Ablation, step by step:** reranking moved the answer row to first place (57% → 80%), showing the model only the 3 best rows fixed refusals, and query translation plus hybrid BM25 + bge-m3 retrieval recovered Gulf dialect; held-out accuracy went from 75% to 84%
+- **82.5% of held-out questions and 87.5% of large-table questions answered correctly on a local 8B model, at about 2 seconds per question**; every unanswerable question refused, 14 of 16 Gulf-dialect questions correct (144 bilingual gold questions, with held-out and large-table splits)
+- **Ablation, step by step:** reranking moved the answer row to first place (57% → 80%), showing the model only the 3 best rows fixed refusals, and query translation plus hybrid BM25 + bge-m3 retrieval recovered Gulf dialect; profiling then found a 2-second `localhost` delay per request and cut the time per question from 12.4 to 2.2 seconds
 - **All 1,432 datasets indexed:** 2.8 million trade rows as server-side totals by country and month, the rest in full (29,699 chunks); a Streamlit app with linked source cards, Docker, and tests in CI
 
 `Python` `RAG` `BM25` `bge-m3` `Ollama` `Streamlit` `REST API` `Docker` `pytest` `GitHub Actions`
@@ -45,7 +45,7 @@ Bilingual **retrieval-augmented generation over Qatar's official open statistics
 
 ## 🎯 Currently Building
 
-- 📚 Comparing the **RAG** assistant's local 8B model with the Claude API on the same 120 questions
+- 📚 Test-running the **RAG** assistant's Docker setup on a GPU, and fixing the remaining wrong-row answers
 - 🧪 **Fine-tuning** a small open model to close the Gulf-dialect accuracy gap (63% → ?)
 - 📈 **Forecasting** clinic demand and no-show risk with explainable ML
 
