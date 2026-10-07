@@ -23,8 +23,9 @@ Bilingual **retrieval-augmented generation over Qatar's official open statistics
 
 - **Grounding check:** the model may only repeat numbers found in the sources it cites; any other number and the answer is withheld
 - **Bilingual chunks:** Arabic and English values are paired from the portal's twin columns (`Doha / الدوحة`), so one index serves both languages
-- **First baseline on a 40-question seed set:** 75% of answers correct (Arabic 80%), 87% hit@6 retrieval, 90% of unanswerable questions refused, all Gulf-dialect questions correct
-- Data pipeline from the portal's API (23,465 chunks), BM25 with optional bge-m3 hybrid retrieval, a Streamlit app with linked source cards, and tests in CI
+- **120-question bilingual benchmark with a held-out split:** 75–78% of held-out questions answered correctly on a local 8B model, 90% of unanswerable questions refused, 11 of 13 Gulf-dialect questions correct
+- **Reranker ablation:** a best-row reranker lifts "answer row ranked first" from 57% to 67% (73% with an LLM reranker), but answer accuracy stays flat, which shows the remaining errors are in reading, not retrieval
+- Data pipeline from the portal's API (23,465 chunks), BM25 with row-level reranking and optional bge-m3 hybrid retrieval, a Streamlit app with linked source cards, and tests in CI
 
 `Python` `BM25` `RAG` `Ollama` `Streamlit` `REST API` `pytest` `GitHub Actions`
 
@@ -36,7 +37,7 @@ Bilingual **retrieval-augmented generation over Qatar's official open statistics
 | :--- | :--- |
 | **Languages** | Python, SQL |
 | **LLMs** | Ollama (Qwen3), Anthropic API, prompt design, few-shot retrieval, evaluation harnesses |
-| **Retrieval / RAG** | BM25, hybrid retrieval with reciprocal rank fusion, Arabic text normalization, citation grounding |
+| **Retrieval / RAG** | BM25, reranking, hybrid retrieval with reciprocal rank fusion, Arabic text normalization, citation grounding |
 | **Data** | DuckDB, Pandas, NumPy, REST API ingestion, synthetic data generation |
 | **Apps & Engineering** | Streamlit, Docker, pytest, GitHub Actions |
 
@@ -44,7 +45,7 @@ Bilingual **retrieval-augmented generation over Qatar's official open statistics
 
 ## 🎯 Currently Building
 
-- 📚 Growing the **RAG** benchmark to ~120 bilingual questions and adding a reranker to catch wrong-row answers
+- 📚 Fixing wrong-row answers in the **RAG** assistant by showing the model only the rows that match the question
 - 🧪 **Fine-tuning** a small open model to close the Gulf-dialect accuracy gap (63% → ?)
 - 📈 **Forecasting** clinic demand and no-show risk with explainable ML
 
