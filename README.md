@@ -23,7 +23,7 @@ Bilingual **retrieval-augmented generation over Qatar's official open statistics
 
 - **Grounding check:** the model may only repeat numbers found in the sources it cites; any other number and the answer is withheld
 - **Bilingual chunks:** Arabic and English values are paired from the portal's twin columns (`Doha / الدوحة`), so one index serves both languages
-- **82.5% of held-out questions and 87.5% of large-table questions answered correctly on a local 8B model, at about 2 seconds per question**; every unanswerable question refused, 14 of 16 Gulf-dialect questions correct (144 bilingual gold questions, with held-out and large-table splits)
+- **81–83% of questions on two held-out sets answered correctly on a local 8B model, at about 2 seconds per question**; every unanswerable question refused, about 1 lookup in 20 wrong (168 bilingual gold questions: dev, two held-out splits and a large-table split)
 - **Ablation, step by step:** reranking moved the answer row to first place (57% → 80%), showing the model only the 3 best rows fixed refusals, and query translation plus hybrid BM25 + bge-m3 retrieval recovered Gulf dialect; profiling then found a 2-second `localhost` delay per request and cut the time per question from 12.4 to 2.2 seconds
 - **All 1,432 datasets indexed:** 2.8 million trade rows as server-side totals by country and month, the rest in full (29,699 chunks); a Streamlit app with linked source cards, a GPU Docker setup tested end to end, and tests in CI
 
@@ -45,7 +45,7 @@ Bilingual **retrieval-augmented generation over Qatar's official open statistics
 
 ## 🎯 Currently Building
 
-- 📚 Fixing the **RAG** assistant's remaining wrong-row answers (7 of 120)
+- 📚 Catching the **RAG** assistant's last wrong answers: a row check after answering already halves them; heuristic row matching did not help on fresh questions and was reverted
 - 🧪 **Fine-tuning** a small open model to close the Gulf-dialect accuracy gap (63% → ?)
 - 📈 **Forecasting** clinic demand and no-show risk with explainable ML
 
