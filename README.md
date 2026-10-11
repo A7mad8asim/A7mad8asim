@@ -6,7 +6,7 @@
 
 ## ⭐ Featured Projects
 
-### [Ask-the-Data · اسأل البيانات](https://github.com/A7mad8asim/ask-the-data)
+### [Ask-the-Data · اسأل البيانات](https://github.com/A7mad8asim/ask-the-data-text-to-sql)
 
 A bilingual (Arabic / English, including Gulf dialect) **text-to-SQL assistant for clinic analytics**. Managers ask a question in their own words and get a correct number back, with a chart and the SQL that produced it.
 
