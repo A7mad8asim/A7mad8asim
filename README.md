@@ -29,6 +29,18 @@ Bilingual **retrieval-augmented generation over Qatar's official open statistics
 
 `Python` `RAG` `BM25` `bge-m3` `Ollama` `Streamlit` `REST API` `Docker` `pytest` `GitHub Actions`
 
+### [Gulf-Dialect Rewriter · من اللهجة إلى الفصحى](https://github.com/A7mad8asim/gulf-dialect-rewriter) <sub>work in progress</sub>
+
+A **QLoRA fine-tuned Qwen3-1.7B** that rewrites Gulf-dialect Arabic questions into Modern Standard Arabic before they reach the Ask-the-Data text-to-SQL assistant, to close its dialect gap.
+
+- **Fresh dialect questions answered correctly: 44% → 60%** with the rewriter in front (a hand-written MSA version reaches 76%). On Ask-the-Data's own dialect questions: 57.9% → 68.4%
+- **Guardrail in code:** a rewrite may change wording, never content; one that drops or adds a number or Latin term is discarded and the original question is used
+- **Data:** human-verified Gulf ↔ MSA tweets and Saudi translations, plus a seeded generator of clinic questions in Gulf dialect (33 measures); every pair checked for leakage against the test questions, which also found 220 training tweets repeating the corpus's own test set
+- **Honest measurement:** paired runs against a prompted 8B baseline and an MSA ceiling; the first model (40% on the fresh set) showed it had learned the generator's templates, which led to the expanded generator
+- Trained in 4-bit on one RTX 5060 Ti (16 GB) with transformers and PEFT; tests in CI
+
+`Python` `PyTorch` `Hugging Face Transformers` `PEFT / QLoRA` `bitsandbytes` `Ollama` `pytest` `GitHub Actions`
+
 ---
 
 ## 🛠 Tools I've Used in Public Projects
@@ -46,7 +58,7 @@ Bilingual **retrieval-augmented generation over Qatar's official open statistics
 ## 🎯 Currently Building
 
 - 📚 The **RAG** assistant's last wrong answers: a model row check and a code-based sub-group check cut wrong figures from 16 to 6 on the same answers; the rest are wrong measures or near-identical tables
-- 🧪 **Fine-tuning** a small open model to close the Gulf-dialect accuracy gap (63% → ?)
+- 🧪 The **Gulf-dialect rewriter**: a new held-out test set written without looking at the training generator, and a check that catches rewrites that swap clinic terms
 - 📈 **Forecasting** clinic demand and no-show risk with explainable ML
 
 ---
