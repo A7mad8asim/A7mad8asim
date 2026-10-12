@@ -33,7 +33,7 @@ Bilingual **retrieval-augmented generation over Qatar's official open statistics
 
 A **QLoRA fine-tuned Qwen3-1.7B** that rewrites Gulf-dialect Arabic questions into Modern Standard Arabic before they reach the Ask-the-Data text-to-SQL assistant, to close its dialect gap.
 
-- **Fresh dialect questions answered correctly: 44% → 60%** with the rewriter in front (a hand-written MSA version reaches 76%). On Ask-the-Data's own dialect questions: 57.9% → 68.4%
+- **Fresh dialect questions answered correctly: 44% → 60%** with the rewriter in front (a hand-written MSA version reaches 76%); Ask-the-Data's own dialect questions 57.9% → 68.4%. It also hurts questions already in MSA (77% → 68%), so it belongs behind a dialect check: routed that way, all 50 Arabic questions go from 70% to 74%
 - **Guardrail in code:** a rewrite may change wording, never content; one that drops or adds a number or Latin term is discarded and the original question is used
 - **Data:** human-verified Gulf ↔ MSA tweets and Saudi translations, plus a seeded generator of clinic questions in Gulf dialect (33 measures); every pair checked for leakage against the test questions, which also found 220 training tweets repeating the corpus's own test set
 - **Honest measurement:** paired runs against a prompted 8B baseline and an MSA ceiling; the first model (40% on the fresh set) showed it had learned the generator's templates, which led to the expanded generator
