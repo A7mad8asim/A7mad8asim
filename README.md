@@ -49,6 +49,7 @@ A **QLoRA fine-tuned Qwen3-1.7B** that rewrites Gulf-dialect Arabic questions in
 | :--- | :--- |
 | **Languages** | Python, SQL |
 | **LLMs** | Ollama (Qwen3), Anthropic API, prompt design, few-shot retrieval, evaluation harnesses |
+| **Fine-tuning** | PyTorch, Hugging Face Transformers, PEFT (LoRA / QLoRA), bitsandbytes 4-bit quantization, training-data leakage checks |
 | **Retrieval / RAG** | BM25, bge-m3 embeddings, hybrid retrieval with reciprocal rank fusion, LLM reranking, query translation, Arabic text normalization, citation grounding |
 | **Data** | DuckDB, Pandas, NumPy, REST API ingestion, synthetic data generation |
 | **Apps & Engineering** | Streamlit, Docker, pytest, GitHub Actions |
